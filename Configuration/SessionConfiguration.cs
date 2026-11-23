@@ -13,9 +13,11 @@ namespace GymManagmentSystem.Configuration
             builder.ToTable(x =>
             {
                 x.HasCheckConstraint("CK_capacityconstraint", "capacity between 1 and 25");
-                x.HasCheckConstraint("CK_startEndDateConstraint", "startDate < endDate");                                                                                                                                                        
+                x.HasCheckConstraint("CK_startEndTimeConstraint", "startTime < endTime");
             });
-
+            #region video 05
+            builder.HasOne(s => s.trainer).WithMany(t => t.Sessions).HasForeignKey(s => s.TrainerId).OnDelete(DeleteBehavior.Restrict);
+            #endregion
         }
     }
     #endregion

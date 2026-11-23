@@ -6,8 +6,11 @@ namespace GymManagmentSystem.Entitys
     public class Trainer : GymUser
     {
         
-        public DateTime hireDate { get; set; }
         public Specialty? Specialty { get; set; }
+        #region Video05
+   
+       public ICollection<Session>? Sessions { get; set; }
+        #endregion
     }
     #endregion
 }

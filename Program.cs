@@ -1,7 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using GymManagmentSystem.Contexts;   // عدّل الـ namespace حسب ملف GymDbContext عندك
 using MVC02.Middleware;
 
-
-namespace WebApplication1
+namespace GymManagmentSystem
 {
     public class Program
     {
@@ -9,23 +10,22 @@ namespace WebApplication1
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+          
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
 
-            app.UseMiddleware<RequestTimeMiddleware>(); 
+            app.UseMiddleware<RequestTimeMiddleware>();
 
             app.UseHttpsRedirection();
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.MapStaticAssets();

@@ -10,7 +10,9 @@
         public int DurationDays { get; set; }
         public bool IsActive { get; set; }
 
-
+        #region vieo 05
+        public ICollection<MemberShip>? MemberShips { get; set; }
+        #endregion
     }
     #endregion
 }
