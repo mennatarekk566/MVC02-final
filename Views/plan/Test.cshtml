@@ -1,0 +1,37 @@
+﻿#REGION VIDEO06
+@{
+//code by c#
+int age = 20;
+    string pagetittle = "testtoo";
+    List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 };
+
+}
+<html>
+<head>
+    <title>@pagetittle</title>
+    <BODY>
+        <h1>This is test page for plan  </h1>
+        <p> @age</p>
+        <p>@age+1</p>
+        <p>(@age+1</p>
+        @if (age > 18)
+        {
+            <p>you are adult</p>
+        }
+        else
+        {
+            <p>you are not adult</p>
+        }
+        )
+        @foreach (var item in numbers)
+        {
+            <p>@item</p>
+        }
+       <!---- <a href="/Home/Index">Home</a> >
+<a asp-controller="Home" asp-action="Index" asp-route-id="1">Home</a>
+
+@* for c# comments*@
+</BODY>
+</head>
+</html>
+#ENDREGION
