@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GymManagmentSystem.Contexts;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GymManagmentSystem.Controllers
 {
@@ -6,10 +8,23 @@ namespace GymManagmentSystem.Controllers
     public class planController:Controller
     {
         //BaseUrl/plans/test
-        public IActionResult Test()
+        //public IActionResult Test()
+        //{
+        //    return View(); //Razor page called Test 
+        //}
+
+
+#region video 07
+        //List of all plans
+        public async Task<IActionResult> index()
         {
-            return View(); //Razor page called Test 
+            using GymDbContext context = new GymDbContext();
+
+            var plans = await context.Plans.ToListAsync();
+            return View(plans); //Razor page called Index
+
         }
-    }
     #endregion
+    }
+#endregion
 }
